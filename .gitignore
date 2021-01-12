@@ -1,0 +1,5 @@
+*.tcx
+*.xml
+__pycache__
+activities
+
