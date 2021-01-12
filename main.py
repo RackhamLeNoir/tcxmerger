@@ -11,15 +11,16 @@ __status__ = "Production"
 
 from activity import *
 from tcxparser import *
-from tcxwriter import *
 
 # Defining main function 
 def main(): 
   act = Activity()
   print('Loading Garmin activity')
   TCXParser.loadGarmin(act, 'garmin.tcx')
-  print('Loading Tacx activity')
-  TCXParser.loadTacx(act, 'tacx.tcx')
+#  print('Loading Tacx activity')
+#  TCXParser.loadTacx(act, 'tacx.tcx')
+  print('Loading Zwift activity')
+  TCXParser.loadZwift(act, 'zwift.tcx')
   print('Sort Track Points')
   act.sort()
   print('Writing merged file')

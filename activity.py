@@ -73,5 +73,19 @@ class Activity:
       self.trackPoints[timestamp] = TrackPoint()
       self.trackPoints[timestamp].setWatts(watts)
 
+  def setTrackPointLocation(self, timestamp, latitude, longitude):
+    try:
+      self.trackPoints[timestamp].setLocation(latitude, longitude)
+    except KeyError:
+      self.trackPoints[timestamp] = TrackPoint()
+      self.trackPoints[timestamp].setLocation(latitude, longitude)
+
+  def setTrackPointAltitude(self, timestamp, altitude):
+    try:
+      self.trackPoints[timestamp].setAltitude(altitude)
+    except KeyError:
+      self.trackPoints[timestamp] = TrackPoint()
+      self.trackPoints[timestamp].setAltitude(altitude)
+
   def sort(self):
     sorted(self.trackPoints)
