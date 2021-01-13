@@ -8,6 +8,8 @@ class Activity:
     self.trackPoints = {}
     self.startTime = datetime.datetime(9999, 1, 1)
     self.totalTime = 0.0
+    self.maxHeartRate = 0
+    self.maxSpeed = 0.0
 
   def setID(self, id):
     self.id = id
@@ -24,7 +26,8 @@ class Activity:
     self.distance = distance
   
   def setMaxSpeed(self, maxSpeed):
-    self.maxSpeed = maxSpeed
+    if maxSpeed > self.maxSpeed:
+      self.maxSpeed = maxSpeed
 
   def setCadence(self, cadence):
     self.cadence = cadence
@@ -36,7 +39,8 @@ class Activity:
     self.averageHeartRate = averageHeartRate
 
   def setMaxHeartRate(self, maxHeartRate):
-    self.maxHeartRate = maxHeartRate
+    if maxHeartRate > self.maxHeartRate:
+      self.maxHeartRate = maxHeartRate
 
   def setTrackPointHeartRate(self, timestamp, heartRate):
     try:

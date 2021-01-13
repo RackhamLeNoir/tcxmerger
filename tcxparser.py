@@ -57,7 +57,8 @@ class TCXParser:
     activity.setTotalTime(float(mydoc.getElementsByTagName('TotalTimeSeconds')[0].firstChild.data))
     activity.setDistance(float(mydoc.getElementsByTagName('DistanceMeters')[0].firstChild.data))
     activity.setCadence(int(mydoc.getElementsByTagName('Cadence')[0].firstChild.data))
-    activity.setMaxSpeed(float(mydoc.getElementsByTagName('MaximumSpeed')[0].firstChild.data))
+    for s in mydoc.getElementsByTagName('MaximumSpeed'):
+      activity.setMaxSpeed(float(s.firstChild.data))
 
     trackPoints = mydoc.getElementsByTagName('Trackpoint')
     for tp in trackPoints:

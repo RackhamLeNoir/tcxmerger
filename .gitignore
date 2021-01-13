@@ -2,4 +2,5 @@
 *.xml
 __pycache__
 activities
+.DS_Store
 
