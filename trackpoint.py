@@ -5,8 +5,8 @@ class TrackPoint:
     self.heartRate = 0
     self.speed = 0
     self.watts = 0
-    self.latitude = 0
-    self.longitude = 0
+    self.latitude = -360
+    self.longitude = -360
     self.altitude = 0
 
   def setDistance(self, distance):

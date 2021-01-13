@@ -125,8 +125,8 @@ class TCXParser:
     lastSpeed = -1
     lastWatts = -1
     lastAltitude = -1.0
-    lastLatitude = -1.0
-    lastLongitude = -1.0
+    lastLatitude = -360.0
+    lastLongitude = -360.0
     for timestamp in timestamps:
       tp = activity.trackPoints[timestamp]
       datatp = et.SubElement(datatrack, 'Trackpoint')
@@ -142,16 +142,16 @@ class TCXParser:
         else:
           datatpaltitude.text = f"{lastAltitude:.16f}"
       # Position
-      if tp.latitude > 0.0 or lastLatitude > 0.0:
+      if tp.latitude > -180.0 or lastLatitude > -180.0:
         datatpposition = et.SubElement(datatp, 'Position')
         datatplatitude = et.SubElement(datatpposition, 'LatitudeDegrees')
-        if tp.latitude > 0.0:
+        if tp.latitude > -180.0:
           datatplatitude.text = f"{tp.latitude:.16f}"
           lastLatitude = tp.latitude
         else:
           datatplatitude.text = f"{lastLatitude:.16f}"
         datatplongitude = et.SubElement(datatpposition, 'LongitudeDegrees')
-        if tp.longitude > 0.0:
+        if tp.longitude > -180.0:
           datatplongitude.text = f"{tp.longitude:.16f}"
           lastLongitude = tp.longitude
         else:
